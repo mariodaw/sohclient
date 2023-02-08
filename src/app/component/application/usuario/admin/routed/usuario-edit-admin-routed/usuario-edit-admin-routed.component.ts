@@ -1,24 +1,22 @@
-import { IUsuario2Form, IUsuario2Send } from '../../../../../../model/usuario-interface';
+import { IUsuario2Form, IUsuario2Send } from './../../../../../../model/usuario-interface';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IUsuario } from 'src/app/model/usuario-interface';
+import { UsuarioService } from 'src/app/service/usuario.service';
 import { IEquipo } from 'src/app/model/equipo-interface';
 import { ITipousuario } from 'src/app/model/tipousuario-interface';
-import { UsuarioService } from 'src/app/service/usuario.service';
 import { EquipoService } from 'src/app/service/equipo.service';
 import { TipousuarioService } from 'src/app/service/tipousuario.service';
 declare let bootstrap: any;
-
 @Component({
-  selector: 'app-usuario-new-admin-routed',
-  templateUrl: './usuario-new-admin-routed.component.html',
-  styleUrls: ['./usuario-new-admin-routed.component.css']
+  selector: 'app-usuario-edit-admin-routed',
+  templateUrl: './usuario-edit-admin-routed.component.html',
+  styleUrls: ['./usuario-edit-admin-routed.component.css']
 })
-export class UsuarioNewAdminRoutedComponent implements OnInit {
+export class UsuarioEditAdminRoutedComponent implements OnInit {
 
- 
-  //id: number = 0;
+  id: number = 0;
   oUsuario: IUsuario = null;
   oUsuario2Form: IUsuario2Form = null;
   oUsuario2Send: IUsuario2Send = null;
@@ -38,33 +36,45 @@ export class UsuarioNewAdminRoutedComponent implements OnInit {
     private oUsuarioService: UsuarioService,
     private oFormBuilder: FormBuilder,
     private oEquipoService: EquipoService,
-    private oTipousuarioService: TipousuarioService
+     private oTipousuarioService: TipousuarioService
   ) {
-    //this.id = oActivatedRoute.snapshot.params['id'];
+    this.id = oActivatedRoute.snapshot.params['id'];
   }
 
   ngOnInit() {
-    this.oForm = <FormGroup>this.oFormBuilder.group({
-      id: [""],
-      username: ["", [Validators.required, Validators.minLength(5), Validators.maxLength(10)]],
-      cuenta: ["", [Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
-      nombre: ["", [Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
-      correo: ["", [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
-      fnac: ["", [Validators.required, Validators.minLength(6), Validators.maxLength(10)]],
-      campeon: ["", [Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
-      skin: ["", [Validators.required, Validators.minLength(3), Validators.maxLength(35)]],
-      id_equipo: ["", [Validators.required, Validators.pattern(/^\d{1,6}$/)]],
-      id_tipousuario: ["", [Validators.required, Validators.pattern(/^\d{1,6}$/)]]
-    }); 
+    this.getOne();
+    
   }
-  //orden camviado
+
+  getOne() {
+    this.oUsuarioService.getOne(this.id).subscribe({
+      next: (data: IUsuario) => {
+        this.oUsuario = data;
+        console.log(data);
+        this.oForm = <FormGroup>this.oFormBuilder.group({
+          id: [data.id, [Validators.required]],
+          username: [data.username, [Validators.required, Validators.minLength(5), Validators.maxLength(10)]],
+          nombre: [data.nombre, [Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
+          cuenta: [data.cuenta, [Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
+          correo: [data.correo, [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
+          fnac: [data.fnac, [Validators.required, Validators.minLength(6), Validators.maxLength(10)]],
+          campeon: [data.campeon, [Validators.required, Validators.minLength(2), Validators.maxLength(10)]],
+          skin: [data.skin, [Validators.required, Validators.minLength(5), Validators.maxLength(30)]],
+          id_equipo: [data.equipo.id, [Validators.required, Validators.pattern(/^\d{1,6}$/)]],
+          id_tipousuario: [data.tipousuario.id, [Validators.required, Validators.pattern(/^\d{1,6}$/)]]
+        });
+        this.updateEquipoDescription(this.oUsuario.equipo.id);
+      }
+    })
+  }
+
   onSubmit() {
     console.log("onSubmit");
     this.oUsuario2Send = {
       id: this.oForm.value.id,
       username: this.oForm.value.username,
-      cuenta: this.oForm.value.cuenta,
       nombre: this.oForm.value.nombre,
+      cuenta: this.oForm.value.cuenta,
       correo: this.oForm.value.correo,
       fnac: this.oForm.value.fnac,
       campeon: this.oForm.value.campeon,
@@ -73,11 +83,11 @@ export class UsuarioNewAdminRoutedComponent implements OnInit {
       tipousuario: { id: this.oForm.value.id_tipousuario }
     }
     if (this.oForm.valid) {
-      this.oUsuarioService.newOne(this.oUsuario2Send).subscribe({
+      this.oUsuarioService.updateOne(this.oUsuario2Send).subscribe({
         next: (data: number) => {
           //open bootstrap modal here
           this.modalTitle = "SOH";
-          this.modalContent = "Usuario " + this.oUsuario2Send.id + " created";
+          this.modalContent = "Usuario " + this.id + " updated";
           this.showModal();
         }
       })
@@ -90,7 +100,7 @@ export class UsuarioNewAdminRoutedComponent implements OnInit {
     })
     var myModalEl = document.getElementById(this.mimodal);
     myModalEl.addEventListener('hidden.bs.modal', (event): void => {
-      this.oRouter.navigate(['/admin/usuario/plist'])
+      this.oRouter.navigate(['/admin/usuario/view', this.id])
     })
     this.myModal.show()
   }
@@ -149,7 +159,4 @@ export class UsuarioNewAdminRoutedComponent implements OnInit {
       }
     })
   }
-
 }
-
-

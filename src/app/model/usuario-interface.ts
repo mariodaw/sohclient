@@ -40,6 +40,6 @@ export interface IUsuario2Send {
     fnac: Date;
     campeon: string;
     skin: string;
-    equipo: IEquipo;
-    tipousuario: ITipousuario;
+    equipo: IEntity;
+    tipousuario: IEntity;
 }

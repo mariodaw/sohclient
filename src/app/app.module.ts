@@ -22,6 +22,8 @@ import { UsuarioViewAdminRoutedComponent } from './component/application/usuario
 import { UsuarioDetailAdminUnroutedComponent } from './component/application/usuario/admin/unrouted/usuario-detail-admin-unrouted/usuario-detail-admin-unrouted.component';
 import { UsuarioNewAdminRoutedComponent } from './component/application/usuario/admin/routed/usuario-new-admin-routed/usuario-new-admin-routed.component';
 import { EquipoFinderAdminUnroutedComponent } from './component/application/equipo/admin/unrouted/equipo-finder-admin-unrouted/equipo-finder-admin-unrouted.component';
+import { UsuarioRemoveAdminRoutedComponent } from './component/application/usuario/admin/routed/usuario-remove-admin-routed/usuario-remove-admin-routed.component';
+import { UsuarioEditAdminRoutedComponent } from './component/application/usuario/admin/routed/usuario-edit-admin-routed/usuario-edit-admin-routed.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { EquipoFinderAdminUnroutedComponent } from './component/application/equi
     UsuarioViewAdminRoutedComponent,
     UsuarioDetailAdminUnroutedComponent,
     UsuarioNewAdminRoutedComponent,
-    
+    UsuarioRemoveAdminRoutedComponent,
+    UsuarioEditAdminRoutedComponent,
+    EquipoFinderAdminUnroutedComponent,
   ],
   imports: [
     BrowserModule,

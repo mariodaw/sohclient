@@ -6,6 +6,9 @@ import { LogoutComponent } from './component/shared/routed/logout/logout.compone
 import { UsuarioPlistAdminRoutedComponent } from './component/application/usuario/admin/routed/usuario-plist-admin-routed/usuario-plist-admin-routed.component';
 import { UsuarioViewAdminRoutedComponent } from './component/application/usuario/admin/routed/usuario-view-admin-routed/usuario-view-admin-routed.component';
 import { UsuarioNewAdminRoutedComponent } from './component/application/usuario/admin/routed/usuario-new-admin-routed/usuario-new-admin-routed.component';
+import { UsuarioRemoveAdminRoutedComponent } from './component/application/usuario/admin/routed/usuario-remove-admin-routed/usuario-remove-admin-routed.component';
+import { UsuarioEditAdminRoutedComponent } from './component/application/usuario/admin/routed/usuario-edit-admin-routed/usuario-edit-admin-routed.component';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -15,6 +18,8 @@ const routes: Routes = [
   { path: 'admin/usuario/plist', component: UsuarioPlistAdminRoutedComponent},
   { path: 'admin/usuario/view/:id', component: UsuarioViewAdminRoutedComponent},
   { path: 'admin/usuario/new', component: UsuarioNewAdminRoutedComponent},
+  { path: 'admin/usuario/remove/:id', component: UsuarioRemoveAdminRoutedComponent},
+  { path: 'admin/usuario/edit/:id', component: UsuarioEditAdminRoutedComponent},
 ];
 
 @NgModule({

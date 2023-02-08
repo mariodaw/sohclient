@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { faEye, faTrash, faUserPen } from '@fortawesome/free-solid-svg-icons';
+import { IEquipo, EquipoResponse } from 'src/app/model/equipo-interface';
+import { EquipoService } from 'src/app/service/equipo.service';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-equipo-finder-admin-unrouted',
   templateUrl: './equipo-finder-admin-unrouted.component.html',
@@ -29,7 +33,7 @@ export class EquipoFinderAdminUnroutedComponent implements OnInit {
   }
 
   getPage() {
-    this.oEquipoService.getequiposPlist(this.numberPage, this.pageRegister, this.termino, this.id_tipousuario)
+    this.oEquipoService.getEquiposPlist(this.numberPage, this.pageRegister, this.termino, this.id_tipousuario)
       .subscribe({
         next: (resp: EquipoResponse) => {
           this.pListContent = resp.content;

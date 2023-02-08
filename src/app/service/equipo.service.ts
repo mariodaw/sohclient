@@ -11,7 +11,7 @@ export class EquipoService {
 
   constructor(private oHttp: HttpClient) { }
 
-  private entityURL = '/Equipo';
+  private entityURL = '/equipo';
 
   getEquiposPlist(page: number, size: number, termino: string, id_tipousuario: number): Observable<EquipoResponse> {
     let params = new HttpParams()

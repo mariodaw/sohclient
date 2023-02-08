@@ -16,7 +16,7 @@ export class TipousuarioService {
     this.url = `${baseURL}${this.entityURL}`;
    }
 
-  private entityURL: string = "/Tipousuario";
+  private entityURL: string = "/tipousuario";
 
 
 
@@ -27,5 +27,8 @@ export class TipousuarioService {
 
   
     return this.oHttp.get<IPage<ITipousuario>>(this.url,{params: params});
+  }
+  getOne(id: number): Observable<ITipousuario> {    
+    return this.oHttp.get<ITipousuario>(`${baseURL}${this.entityURL}` + "/" + id);
   }
 }
