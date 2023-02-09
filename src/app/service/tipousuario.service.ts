@@ -20,7 +20,7 @@ export class TipousuarioService {
 
 
 
-  getUsersTypePlist(page: number, size: number): Observable<IPage<ITipousuario>>{
+  getTipousuarioPlist(page: number, size: number): Observable<IPage<ITipousuario>>{
     let params = new HttpParams()
     .set("page", page)
     .set("size", size);

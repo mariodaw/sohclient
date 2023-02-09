@@ -64,6 +64,7 @@ export class UsuarioEditAdminRoutedComponent implements OnInit {
           id_tipousuario: [data.tipousuario.id, [Validators.required, Validators.pattern(/^\d{1,6}$/)]]
         });
         this.updateEquipoDescription(this.oUsuario.equipo.id);
+        this.updateTipousuarioDescription(this.oUsuario.tipousuario.id);
       }
     })
   }
@@ -143,7 +144,7 @@ export class UsuarioEditAdminRoutedComponent implements OnInit {
   }
 
   closeTipousuarioModal(id_Tipousuario: number) {
-    this.oForm.controls['id_Tipousuario'].setValue(id_Tipousuario);
+    this.oForm.controls['id_t ipousuario'].setValue(id_Tipousuario);
     this.updateTipousuarioDescription(id_Tipousuario);
     this.myModal.hide();
   }

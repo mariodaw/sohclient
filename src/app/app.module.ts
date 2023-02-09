@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './component/shared/routed/home/home.component';
-import { LoginComponent } from './component/shared/routed/login/login.component';
 import { MenuComponent } from './component/shared/unrouted/menu/menu.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PaginationComponent } from './component/shared/unrouted/pagination/pagination.component';
@@ -24,12 +23,15 @@ import { UsuarioNewAdminRoutedComponent } from './component/application/usuario/
 import { EquipoFinderAdminUnroutedComponent } from './component/application/equipo/admin/unrouted/equipo-finder-admin-unrouted/equipo-finder-admin-unrouted.component';
 import { UsuarioRemoveAdminRoutedComponent } from './component/application/usuario/admin/routed/usuario-remove-admin-routed/usuario-remove-admin-routed.component';
 import { UsuarioEditAdminRoutedComponent } from './component/application/usuario/admin/routed/usuario-edit-admin-routed/usuario-edit-admin-routed.component';
+import { TipousuarioFinderAdminUnroutedComponent } from './component/application/tipousuario/admin/unrouted/tipousuario-finder-admin-unrouted/tipousuario-finder-admin-unrouted.component';
+import { EquipoPlistAdminRoutedComponent } from './component/application/equipo/admin/routed/equipo-plist-admin-routed/equipo-plist-admin-routed.component';
+import { EquipoViewAdminRoutedComponent } from './component/application/equipo/admin/routed/equipo-view-admin-routed/equipo-view-admin-routed.component';
+import { EquipoDetailAdminUnroutedComponent } from './component/application/equipo/admin/unrouted/equipo-detail-admin-unrouted/equipo-detail-admin-unrouted.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent,
     LogoutComponent,
     MenuComponent,  
     FooterComponent,  
@@ -44,6 +46,10 @@ import { UsuarioEditAdminRoutedComponent } from './component/application/usuario
     UsuarioRemoveAdminRoutedComponent,
     UsuarioEditAdminRoutedComponent,
     EquipoFinderAdminUnroutedComponent,
+    TipousuarioFinderAdminUnroutedComponent,
+    EquipoPlistAdminRoutedComponent,
+    EquipoViewAdminRoutedComponent,
+    EquipoDetailAdminUnroutedComponent,
   ],
   imports: [
     BrowserModule,

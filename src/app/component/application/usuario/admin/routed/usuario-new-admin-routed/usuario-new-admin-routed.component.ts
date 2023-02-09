@@ -103,7 +103,7 @@ export class UsuarioNewAdminRoutedComponent implements OnInit {
   }
 
   closeEquipoModal(id_Equipo: number) {
-    this.oForm.controls['id_Equipo'].setValue(id_Equipo);
+    this.oForm.controls['id_equipo'].setValue(id_Equipo);
     this.updateEquipoDescription(id_Equipo);
     this.myModal.hide();
   }
@@ -120,20 +120,15 @@ export class UsuarioNewAdminRoutedComponent implements OnInit {
     })
   }
 
-  
-
-
   openModalFindTipousuario(): void {
     this.myModal = new bootstrap.Modal(document.getElementById("findTipousuario"), { //pasar el myModal como parametro
       keyboard: false
     })
     this.myModal.show()
-
-
   }
 
   closeTipousuarioModal(id_Tipousuario: number) {
-    this.oForm.controls['id_Tipousuario'].setValue(id_Tipousuario);
+    this.oForm.controls['id_tipousuario'].setValue(id_Tipousuario);
     this.updateTipousuarioDescription(id_Tipousuario);
     this.myModal.hide();
   }
