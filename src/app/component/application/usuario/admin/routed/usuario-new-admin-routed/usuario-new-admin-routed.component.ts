@@ -48,13 +48,13 @@ export class UsuarioNewAdminRoutedComponent implements OnInit {
   ngOnInit() {
     this.oForm = <FormGroup>this.oFormBuilder.group({
       id: [""],
-      username: ["", [Validators.required, Validators.minLength(5), Validators.maxLength(10)]],
-      cuenta: ["", [Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
-      nombre: ["", [Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
+      username: ["", [Validators.required, Validators.minLength(3), Validators.maxLength(25)]],
+      cuenta: ["", [Validators.required, Validators.minLength(3), Validators.maxLength(25)]],
+      nombre: ["", [Validators.required, Validators.minLength(3), Validators.maxLength(25)]],
       correo: ["", [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
-      fnac: ["", [Validators.required, Validators.minLength(6), Validators.maxLength(10)]],
-      campeon: ["", [Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
-      skin: ["", [Validators.required, Validators.minLength(3), Validators.maxLength(35)]],
+      fnac: ["", [Validators.required, Validators.minLength(3), Validators.maxLength(25)]],
+      campeon: ["", [Validators.required, Validators.minLength(3), Validators.maxLength(25)]],
+      skin: ["", [Validators.required, Validators.minLength(3), Validators.maxLength(25)]],
       id_equipo: ["", [Validators.required, Validators.pattern(/^\d{1,6}$/)]],
       id_tipousuario: ["", [Validators.required, Validators.pattern(/^\d{1,6}$/)]]
     }); 

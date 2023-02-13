@@ -55,13 +55,13 @@ export class UsuarioEditAdminRoutedComponent implements OnInit {
         console.log(data);
         this.oForm = <FormGroup>this.oFormBuilder.group({
           id: [data.id, [Validators.required]],
-          username: [data.username, [Validators.required, Validators.minLength(5), Validators.maxLength(10)]],
-          nombre: [data.nombre, [Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
-          cuenta: [data.cuenta, [Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
+          username: [data.username, [Validators.required, Validators.minLength(3), Validators.maxLength(25)]],
+          nombre: [data.nombre, [Validators.required, Validators.minLength(3), Validators.maxLength(25)]],
+          cuenta: [data.cuenta, [Validators.required, Validators.minLength(3), Validators.maxLength(25)]],
           correo: [data.correo, [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
-          fnac: [data.fnac, [Validators.required, Validators.minLength(6), Validators.maxLength(10)]],
-          campeon: [data.campeon, [Validators.required, Validators.minLength(2), Validators.maxLength(10)]],
-          skin: [data.skin, [Validators.required, Validators.minLength(5), Validators.maxLength(30)]],
+          fnac: [data.fnac, [Validators.required, Validators.minLength(3), Validators.maxLength(25)]],
+          campeon: [data.campeon, [Validators.required, Validators.minLength(3), Validators.maxLength(25)]],
+          skin: [data.skin, [Validators.required, Validators.minLength(3), Validators.maxLength(25)]],
           id_equipo: [data.equipo.id, [Validators.required, Validators.pattern(/^\d{1,6}$/)]],
           id_tipousuario: [data.tipousuario.id, [Validators.required, Validators.pattern(/^\d{1,6}$/)]]
         });
