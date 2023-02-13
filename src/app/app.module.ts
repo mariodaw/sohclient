@@ -5,7 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './component/shared/routed/home/home.component';
 import { MenuComponent } from './component/shared/unrouted/menu/menu.component';
-import { HttpClientModule } from '@angular/common/http';
+import { AuthInterceptor } from './interceptor/auth.interceptor';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { PaginationComponent } from './component/shared/unrouted/pagination/pagination.component';
 import { SearchUnroutedComponent } from './component/shared/unrouted/search-unrouted/search-unrouted.component';
 import { DropdownRegisterPageComponent } from './component/shared/unrouted/dropdown-register-page/dropdown-register-page.component';
@@ -14,6 +15,7 @@ import { PaginationUnroutedComponent } from './component/shared/unrouted/paginat
 import { PaginationService } from './service/pagination.service';
 import { CryptoService } from './service/crypto.service';
 import { DecodeService } from './service/decode.service';
+import { LoginComponent } from './component/shared/routed/login/login.component';
 import { LogoutComponent } from './component/shared/routed/logout/logout.component';
 import { FooterComponent } from './component/shared/unrouted/footer/footer.component';
 import { UsuarioPlistAdminRoutedComponent } from './component/application/usuario/admin/routed/usuario-plist-admin-routed/usuario-plist-admin-routed.component';
@@ -27,13 +29,21 @@ import { TipousuarioFinderAdminUnroutedComponent } from './component/application
 import { EquipoPlistAdminRoutedComponent } from './component/application/equipo/admin/routed/equipo-plist-admin-routed/equipo-plist-admin-routed.component';
 import { EquipoViewAdminRoutedComponent } from './component/application/equipo/admin/routed/equipo-view-admin-routed/equipo-view-admin-routed.component';
 import { EquipoDetailAdminUnroutedComponent } from './component/application/equipo/admin/unrouted/equipo-detail-admin-unrouted/equipo-detail-admin-unrouted.component';
+import { GenerateComponent } from './component/shared/routed/generate/generate.component';
+import { PopupComponent } from './component/shared/unrouted/popup/popup.component';
+import { EquipoNewAdminRoutedComponent } from './component/application/equipo/admin/routed/equipo-new-admin-routed/equipo-new-admin-routed.component';
+import { EquipoRemoveAdminRoutedComponent } from './component/application/equipo/admin/routed/equipo-remove-admin-routed/equipo-remove-admin-routed.component';
+import { EquipoEditAdminRoutedComponent } from './component/application/equipo/admin/routed/equipo-edit-admin-routed/equipo-edit-admin-routed.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    LoginComponent,
     LogoutComponent,
     MenuComponent,  
+    PopupComponent,
+    GenerateComponent,
     FooterComponent,  
     PaginationComponent,
     SearchUnroutedComponent,
@@ -50,6 +60,9 @@ import { EquipoDetailAdminUnroutedComponent } from './component/application/equi
     EquipoPlistAdminRoutedComponent,
     EquipoViewAdminRoutedComponent,
     EquipoDetailAdminUnroutedComponent,
+    EquipoNewAdminRoutedComponent,
+    EquipoRemoveAdminRoutedComponent,
+    EquipoEditAdminRoutedComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,7 +75,8 @@ import { EquipoDetailAdminUnroutedComponent } from './component/application/equi
   providers: [
     CryptoService,
     DecodeService,
-    PaginationService
+    PaginationService,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

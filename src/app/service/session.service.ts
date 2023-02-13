@@ -36,7 +36,7 @@ export class SessionService {
         return this.oHttpClient.post<string>(this.sURL, loginData, httpOptions);
     }
 
-    getUserName(): string {
+    getUsuario(): string {
         if (!this.isSessionActive()) {
             return "";
         } else {
@@ -44,6 +44,15 @@ export class SessionService {
             return this.oDecodeService.parseJwt(token).name;
         }
     }
+    getTipousuario(): string {
+        if (!this.isSessionActive()) {
+            return "";
+        } else {
+            let token: string = localStorage.getItem("token");
+            return this.oDecodeService.parseJwt(token).tipousuario;
+        }
+    }
+    //*ngIf="strUsertype=='1'
 
     getToken(): string {
         return localStorage.getItem("token");

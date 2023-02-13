@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { IEquipo } from 'src/app/model/equipo-interface';
+import { Location } from '@angular/common';
 import { EquipoService } from 'src/app/service/equipo.service';
 import { faEye, faUserPen, faTrash, faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { IPage } from 'src/app/model/generic-types-interface';
@@ -35,6 +36,7 @@ export class EquipoPlistAdminRoutedComponent implements OnInit {
   constructor(
     protected oRouter: Router,
     private oEquipoService: EquipoService,
+    protected oLocation: Location,
     private oSessionService: SessionService,
   ) {
     

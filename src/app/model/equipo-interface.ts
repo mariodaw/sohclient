@@ -1,4 +1,6 @@
 import { Pageable, Sort } from "./shared-interface";
+import { IEntity } from "./generic-types-interface";
+import { FormControl } from "@angular/forms";
 
 export interface IEquipo {
     id:         number;
@@ -17,4 +19,13 @@ export interface EquipoResponse {
     first:            boolean;
     size:             number;
     empty:            boolean;
+}
+
+export interface IEquipo2Form {
+    id: FormControl<number>;
+    nombre: FormControl<string>;
+}
+export interface IEquipo2Send {
+    id: number;
+    nombre: string;
 }

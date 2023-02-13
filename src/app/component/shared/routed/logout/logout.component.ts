@@ -17,7 +17,7 @@ export class LogoutComponent implements OnInit {
   ) {
 
     if (this.oSessionService.isSessionActive()) {
-      this.strUserName = this.oSessionService.getUserName();
+      this.strUserName = this.oSessionService.getUsuario();
     } else {
       this.oRouter.navigate(['/home']);
     }

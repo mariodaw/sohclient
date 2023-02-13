@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { IUsuario } from 'src/app/model/usuario-interface';
 import { UsuarioService } from 'src/app/service/usuario.service';
 import { IEquipo } from 'src/app/model/equipo-interface';
+import { Location } from '@angular/common';
 import { ITipousuario } from 'src/app/model/tipousuario-interface';
 import { EquipoService } from 'src/app/service/equipo.service';
 import { TipousuarioService } from 'src/app/service/tipousuario.service';
@@ -35,6 +36,7 @@ export class UsuarioEditAdminRoutedComponent implements OnInit {
     private oActivatedRoute: ActivatedRoute,
     private oUsuarioService: UsuarioService,
     private oFormBuilder: FormBuilder,
+    protected oLocation: Location,
     private oEquipoService: EquipoService,
      private oTipousuarioService: TipousuarioService
   ) {

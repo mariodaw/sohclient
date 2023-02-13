@@ -1,6 +1,7 @@
 import { IUsuario } from 'src/app/model/usuario-interface';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 import { UsuarioService } from 'src/app/service/usuario.service';
 
 
@@ -15,7 +16,8 @@ export class UsuarioViewAdminRoutedComponent implements OnInit {
   ousuario: IUsuario = null;
 
   constructor(
-    private oActivatedRoute: ActivatedRoute
+    private oActivatedRoute: ActivatedRoute,
+    protected oLocation: Location,
   ) {
     this.id = oActivatedRoute.snapshot.params['id'];
   }

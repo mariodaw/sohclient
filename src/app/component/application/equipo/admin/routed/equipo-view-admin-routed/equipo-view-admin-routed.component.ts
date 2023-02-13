@@ -1,6 +1,7 @@
 import { IEquipo } from 'src/app/model/equipo-interface';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 import { EquipoService } from 'src/app/service/equipo.service';
 
 
@@ -15,7 +16,8 @@ export class EquipoViewAdminRoutedComponent implements OnInit {
   oEquipo: IEquipo = null;
 
   constructor(
-    private oActivatedRoute: ActivatedRoute
+    private oActivatedRoute: ActivatedRoute,
+    protected oLocation: Location,
   ) {
     this.id = oActivatedRoute.snapshot.params['id'];
   }

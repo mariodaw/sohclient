@@ -13,13 +13,13 @@ export class FooterComponent implements OnInit {
   constructor(
     private oSessionService: SessionService,
   ) { 
-    this.strUserName = oSessionService.getUserName();
+    this.strUserName = oSessionService.getUsuario();
   }
 
   ngOnInit() {
     this.oSessionService.on(Events.login).subscribe(
       (data: any) => {
-        this.strUserName = this.oSessionService.getUserName();
+        this.strUserName = this.oSessionService.getUsuario();
       });
     this.oSessionService.on(Events.logout).subscribe(
       (data: any) => {

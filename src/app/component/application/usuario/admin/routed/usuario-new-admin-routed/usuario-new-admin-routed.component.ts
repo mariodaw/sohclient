@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { IUsuario } from 'src/app/model/usuario-interface';
 import { IEquipo } from 'src/app/model/equipo-interface';
 import { ITipousuario } from 'src/app/model/tipousuario-interface';
+import { Location } from '@angular/common';
 import { UsuarioService } from 'src/app/service/usuario.service';
 import { EquipoService } from 'src/app/service/equipo.service';
 import { TipousuarioService } from 'src/app/service/tipousuario.service';
@@ -36,13 +37,14 @@ export class UsuarioNewAdminRoutedComponent implements OnInit {
     private oRouter: Router,
     private oActivatedRoute: ActivatedRoute,
     private oUsuarioService: UsuarioService,
+    protected oLocation: Location,
     private oFormBuilder: FormBuilder,
     private oEquipoService: EquipoService,
     private oTipousuarioService: TipousuarioService
   ) {
     //this.id = oActivatedRoute.snapshot.params['id'];
   }
-
+  
   ngOnInit() {
     this.oForm = <FormGroup>this.oFormBuilder.group({
       id: [""],
