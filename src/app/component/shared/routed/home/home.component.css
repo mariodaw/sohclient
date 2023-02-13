@@ -12,7 +12,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    text-shadow: 10px 5px 5px  #850a0a;
+    text-shadow: 10px 5px 5px  #696961;
+    -webkit-text-stroke: 2px rgba(219, 150, 23, 0.779);
+  color: transparent;
 }
 
 *,
@@ -22,7 +24,7 @@ body {
 }
 
 #megacontainer{
-    background-color: #571d1d;
+    background-color: #9a3434;
 }
 
 .container {
@@ -31,15 +33,15 @@ body {
   align-items: center;
   width: 100%;
   height: 75vh;
-  background-color: #571d1d;
+  background-color: #9a3434;
 }
 
 .box {
   position: relative;
-  min-width: 250px;
-  max-width: 350px;
+  min-width: 15%;
+  max-width: 20%;
   width: 25%;
-  height: 600px;
+  height: 75%;
   margin-left: 20px;
   overflow: hidden;
   box-shadow: 2px 4px 10px 0 rgba(0, 0, 0, 0.5);
