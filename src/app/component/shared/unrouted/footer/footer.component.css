@@ -6,4 +6,8 @@ hr{
     height: 0.1em;
     background-color: white;
 }
+#footer{
+    position: sticky;
+    top: 100%;
+}
 

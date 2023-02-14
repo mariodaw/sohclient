@@ -1,13 +1,13 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col">
-      <h1 class="text-center mb-5">Alta de Developer</h1>
+      <h1 class="text-center mb-5">Alta de Equipo</h1>
       
       <form novalidate [formGroup]="oForm" (ngSubmit)="onSubmit()">        
     
 
         <div class="mb-3 row">
-          <label for="inputnombre" class="col-sm-2 col-form-label">nombre</label>
+          <label for="inputnombre" class="col-sm-2 col-form-label">Nombre</label>
           <div class="col-sm-4 has-validation">
             <input type="text" class="form-control" [ngClass]="{'is-valid' : oForm.controls.nombre.dirty && !oForm.controls.nombre.errors?.['required'] &&
             oForm.controls.nombre.dirty && !oForm.controls.nombre.errors?.['minlength'] 

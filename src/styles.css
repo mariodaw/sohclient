@@ -8,9 +8,13 @@ header{
 }
 body{
     background-color: #9a3434 !important;
+    min-height: 100vh;
 }
 h1{
     text-shadow: 10px 5px 5px  #af835083;
     -webkit-text-stroke: 2px rgb(219, 150, 23);
   color: transparent;
+}
+form{
+    border-color: black;
 }
