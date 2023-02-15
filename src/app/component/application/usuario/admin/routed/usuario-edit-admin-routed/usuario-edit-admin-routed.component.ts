@@ -116,7 +116,7 @@ export class UsuarioEditAdminRoutedComponent implements OnInit {
   }
 
   closeEquipoModal(id_Equipo: number) {
-    this.oForm.controls['id_Equipo'].setValue(id_Equipo);
+    this.oForm.controls['id_equipo'].setValue(id_Equipo);
     this.updateEquipoDescription(id_Equipo);
     this.myModal.hide();
   }
@@ -128,7 +128,7 @@ export class UsuarioEditAdminRoutedComponent implements OnInit {
       },
       error: (error: any) => {
         this.EquipoDescription = "Equipo not found";        
-        this.oForm.controls['id_Equipo'].setErrors({'incorrect': true});
+        this.oForm.controls['id_equipo'].setErrors({'incorrect': true});
       }
     })
   }
@@ -146,7 +146,7 @@ export class UsuarioEditAdminRoutedComponent implements OnInit {
   }
 
   closeTipousuarioModal(id_Tipousuario: number) {
-    this.oForm.controls['id_t ipousuario'].setValue(id_Tipousuario);
+    this.oForm.controls['id_tipousuario'].setValue(id_Tipousuario);
     this.updateTipousuarioDescription(id_Tipousuario);
     this.myModal.hide();
   }
