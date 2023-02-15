@@ -45,11 +45,9 @@ export class EquipoPlistAdminRoutedComponent implements OnInit {
   ngOnInit() {
     this.getPage();
   }
-/* page: number, size: number, termino: string, id_tipousuario: number
-this.page, this.numberOfElements,
-      this.strTermFilter, this.id_tipoEquipoFilter, this.sortField, this.sortDirection */
+/* page: number, size: number, termino: string, id_tipousuario: number, strSortField: string, strOrderDirection: string */
   getPage() {
-    this.oEquipoService.getEquiposPlist(this.page, this.numberOfElements, this.strTermFilter, this.id_tipoEquipoFilter)
+    this.oEquipoService.getEquiposPlist(this.page, this.numberOfElements, this.strTermFilter, this.sortField, this.sortDirection)
       .subscribe({
         next: (resp: IPage<IEquipo>) => {
           this.responseFromServer = resp;

@@ -21,7 +21,8 @@ export class UsuarioService {
   getUsuariosPlist(page: number, size: number, termino: string, id_tipousuario: number, strSortField: string, strOrderDirection: string): Observable<IPage<IUsuario>> {
     let params = new HttpParams()
       .set("page", page)
-      .set("size", size);
+      .set("size", size)
+      .set("filter", termino);
     if (termino) {
       params = params.set('filter', termino.trim());
     }

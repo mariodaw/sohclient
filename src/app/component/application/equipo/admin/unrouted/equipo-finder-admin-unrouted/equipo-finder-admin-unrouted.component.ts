@@ -18,6 +18,8 @@ export class EquipoFinderAdminUnroutedComponent implements OnInit {
   private numberPage: number = 0;
   private pageRegister: number = 5;
   private termino: string = "";
+  strSortField: string = "";
+  strOrderDirection: string = "";
   id_tipousuario: number = 0;
 
   faEye = faEye;
@@ -33,7 +35,7 @@ export class EquipoFinderAdminUnroutedComponent implements OnInit {
   }
 
   getPage() {
-    this.oEquipoService.getEquiposPlist(this.numberPage, this.pageRegister, this.termino, this.id_tipousuario)
+    this.oEquipoService.getEquiposPlist(this.numberPage, this.pageRegister, this.termino, this.strSortField, this.strOrderDirection)
       .subscribe({
         next: (resp: EquipoResponse) => {
           this.pListContent = resp.content;

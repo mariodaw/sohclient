@@ -18,15 +18,21 @@ export class EquipoService {
     this.url = `${baseURL}${this.entityURL}`;
   }
 
-  getEquiposPlist(page: number, size: number, termino: string, id_tipousuario: number): Observable<EquipoResponse> {
+  getEquiposPlist(page: number, size: number, termino: string,  strSortField: string, strOrderDirection: string): Observable<EquipoResponse> {
     let params = new HttpParams()
-      .set("filter", termino)
       .set("page", page)
-      .set("size", size);
-    if (id_tipousuario != 0) {
-      params = params.set("tipousuario", id_tipousuario);
-    }
-
+      .set("size", size)
+      .set("filter", termino);
+      if (termino) {
+        params = params.set('filter', termino.trim());
+      }
+      if (strSortField != "") { //&sort=codigo,[asc|desc]
+        if (strOrderDirection != "") {
+          params = params.set("sort", strSortField + "," + strOrderDirection);
+        } else {
+          params = params.set("sort", strSortField);
+        }
+      }
     let url: string = `${baseURL}${this.entityURL}`;
     return this.oHttp.get<EquipoResponse>(url, { params: params });
   }
