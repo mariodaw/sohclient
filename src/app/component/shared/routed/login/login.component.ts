@@ -53,12 +53,12 @@ export class LoginComponent implements OnInit {
   }
 
   loginAsAdmin() {
-    this.oFormularioLogin.controls['username'].setValue("pepeluis");
+    this.oFormularioLogin.controls['username'].setValue("Talayis");
     this.oFormularioLogin.controls['password'].setValue("wildcart");
   }
 
   loginAsUser() {
-    this.oFormularioLogin.controls['username'].setValue("raimon");
+    this.oFormularioLogin.controls['username'].setValue("Joker");
     this.oFormularioLogin.controls['password'].setValue("wildcart");
   }
 
